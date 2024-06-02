@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import tmdbService from '../services/TmdbService';
+import TmdbService from '../services/TmdbService';
 import Movie from './Movie';
 
 const PopularMovies = () => {
@@ -9,7 +9,7 @@ const PopularMovies = () => {
   useEffect(() => {
     const fetchPopularMovies = async () => {
       try {
-        const popularMovies = await tmdbService.getPopularMovies();
+        const popularMovies = await TmdbService.getPopularMovies();
         setMovies(popularMovies);
         setLoading(false);
         // console.log(popularMovies[0]);

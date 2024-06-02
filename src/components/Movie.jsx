@@ -1,14 +1,14 @@
 import '../styles/movie-item.scss';
 
 import React, { useEffect, useState } from 'react';
-import tmdbService from '../services/TmdbService';
+import TmdbService from '../services/TmdbService';
 import { HandThumbUpIcon } from '@heroicons/react/24/outline';
 
 const Movie = ({movie}) => {
 
-  const imgPath = tmdbService.getImageFullPath(movie.poster_path);
+  const imgPath = TmdbService.getImageFullPath(movie.poster_path);
   // console.log(imgPath);
-  const bgImage = tmdbService.getImageFullPath(movie.backdrop_path);
+  const bgImage = TmdbService.getImageFullPath(movie.backdrop_path);
 
   return (
     <div className='movie-container' key={movie.id}>

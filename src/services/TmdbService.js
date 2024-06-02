@@ -2,12 +2,22 @@
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 const BASE_URL = process.env.REACT_APP_TMDB_API_BASE_URL;
 
-const tmdbService = {
+const OPTIONS = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_KEY_READ}`
+  }
+};
+
+const LANGUAGE = 'language=es-ES';
+
+const TmdbService = {
+
   async getPopularMovies() {
     try {
-      const url = `${BASE_URL}/movie/popular?language=es-ES&api_key=${API_KEY}`;
-      console.log("API: "+url);
-      const response = await fetch(url);
+      const url = `${BASE_URL}/movie/popular?${LANGUAGE}`;
+      const response = await fetch(url, OPTIONS);
       const data = await response.json();
       return data.results;
     } catch (error) {
@@ -18,7 +28,7 @@ const tmdbService = {
 
   async searchMovies(query) {
     try {
-      const response = await fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`);
+      const response = await fetch(`${BASE_URL}/search/movie?${LANGUAGE}&query=${query}`, OPTIONS);
       const data = await response.json();
       return data.results;
     } catch (error) {
@@ -32,4 +42,4 @@ const tmdbService = {
   }
 };
 
-export default tmdbService;
+export default TmdbService;
