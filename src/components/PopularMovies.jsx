@@ -12,7 +12,7 @@ const PopularMovies = () => {
         const popularMovies = await tmdbService.getPopularMovies();
         setMovies(popularMovies);
         setLoading(false);
-        console.log(popularMovies[0]);
+        // console.log(popularMovies[0]);
       } catch (error) {
         console.error('Error fetching popular movies:', error);
       }
@@ -29,7 +29,7 @@ const PopularMovies = () => {
     <div>
       <h1>Popular Movies</h1>
       <div>
-        {movies.map((movie) => (
+        {movies.sort((a,b) => b.popularity - a.popularity).map((movie) => (
           <Movie key={movie.id} movie={movie} />
         ))}
       </div>

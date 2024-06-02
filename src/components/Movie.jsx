@@ -2,6 +2,7 @@ import '../styles/movie-item.scss';
 
 import React, { useEffect, useState } from 'react';
 import tmdbService from '../services/TmdbService';
+import { HandThumbUpIcon } from '@heroicons/react/24/outline';
 
 const Movie = ({movie}) => {
 
@@ -20,6 +21,18 @@ const Movie = ({movie}) => {
       <div className='details'>
         <div className='title'>
           {movie.title}
+        </div>
+        <div className='resumen'>
+          {movie.overview}
+        </div>
+        <div className='likes-container'>
+          <HandThumbUpIcon className='twi'/>
+          <span>{movie.vote_count}</span>
+        </div>
+        <div className='score' title={movie.vote_average}>
+          <span>
+            {movie.vote_average.toFixed(1)}
+          </span>
         </div>
       </div>
     </div>

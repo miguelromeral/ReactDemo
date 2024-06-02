@@ -5,7 +5,7 @@ const BASE_URL = process.env.REACT_APP_TMDB_API_BASE_URL;
 const tmdbService = {
   async getPopularMovies() {
     try {
-      const url = `${BASE_URL}/movie/popular?api_key=${API_KEY}`;
+      const url = `${BASE_URL}/movie/popular?language=es-ES&api_key=${API_KEY}`;
       console.log("API: "+url);
       const response = await fetch(url);
       const data = await response.json();
