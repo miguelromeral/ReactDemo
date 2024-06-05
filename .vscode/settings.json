@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/dc767c68-8cde-4028-81de-3fd0b146cfc7/resourceGroups/SoloManitas/providers/Microsoft.Web/sites/TmdbAppMiguelRomeral",
+  "appService.deploySubpath": "build"
+}

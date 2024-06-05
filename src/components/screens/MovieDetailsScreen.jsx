@@ -3,7 +3,7 @@ import TmdbService from '../../services/TmdbService';
 import CustomizeService from '../../services/CustomizeService';
 import { useParams } from 'react-router-dom';
 import Movie from '../Movie';
-import { BanknotesIcon, TicketIcon } from '@heroicons/react/24/outline';
+import { BanknotesIcon, TicketIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 
 const MovieDetailsScreen = () => {
 
@@ -48,6 +48,14 @@ const MovieDetailsScreen = () => {
   <span>{CustomizeService.printMoney(movie.revenue)}</span>
 </p> : <></>;
 
+  const homepageTemplate = movie.homepage ? 
+    <div className='my-4'>
+      <a href={movie.homepage} target='_blank'>
+        <GlobeAltIcon className='h-4'/>
+      </a>
+    </div>
+  : '';
+
   return (
     <>
     <div className='transition-all ease-in-out max-h-36 group hover:max-h-96 overflow-hidden flex justify-center items-center'>
@@ -81,7 +89,7 @@ const MovieDetailsScreen = () => {
             {budgetTemplate}
             {revenueTemplate}
           </div>
-          
+          {homepageTemplate}
         </div>
       </div>
     </div>
