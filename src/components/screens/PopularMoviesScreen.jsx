@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TmdbService from '../../services/TmdbService';
-import Movie from '../Movie';
+import MovieCard from '../shared/cards/MovieCard';
 
 const PopularMoviesScreen = () => {
   const [movies, setMovies] = useState([]);
@@ -30,7 +30,7 @@ const PopularMoviesScreen = () => {
       <div className='container mx-auto px-2'>
         <h1 className='text-2xl font-bold py-2'>Popular Movies</h1>
         {movies.sort((a,b) => b.popularity - a.popularity).map((movie) => (
-          <Movie key={movie.id} movie={movie} />
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
     </div>

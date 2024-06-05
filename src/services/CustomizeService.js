@@ -46,7 +46,7 @@ const CustomizeService = {
     }
     const hours = Math.floor(minutes / 60);
     const mins = minutes % 60;  
-    const formattedMins = mins.toString().padStart(2, '0');
+    const formattedMins = hours > 0 ? mins.toString().padStart(2, '0') : mins.toString();
     return `${hours > 0 ? hours + 'h ' : '' }${formattedMins}min`;
   }
 }

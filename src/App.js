@@ -4,6 +4,10 @@ import NavBar from './components/shared/NavBar';
 import SearchMoviesScreen from './components/screens/SearchMoviesScreen';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MovieDetailsScreen from './components/screens/MovieDetailsScreen';
+import Footer from './components/shared/Footer';
+import SearchShowsScreen from './components/screens/SearchShowsScreen';
+import NotFoundScreen from './components/screens/NotFoundScreen';
+import ShowDetailsScreen from './components/screens/ShowDetailsScreen';
 
 function App() {
 
@@ -12,16 +16,19 @@ function App() {
   return (
     <div className='font-poppins'>
     <NavBar />
-    <div className="App">
+    <div className="App bottom-2">
       <Router>
           <Routes>
             <Route path="/" element={<PopularMovies />} />
-            <Route path="/search" element={<SearchMoviesScreen />} />
-            <Route path="/details/:id" element={<MovieDetailsScreen />} />
-            <Route path="*" element={<SearchMoviesScreen />} />
+            <Route path="/shows" element={<SearchShowsScreen />} />
+            <Route path="/show/:id" element={<ShowDetailsScreen />} />
+            <Route path="/movies" element={<SearchMoviesScreen />} />
+            <Route path="/movie/:id" element={<MovieDetailsScreen />} />
+            <Route path="*" element={<NotFoundScreen />} />
           </Routes>
         </Router>
     </div>
+    <Footer />
     </div>
   );
 }

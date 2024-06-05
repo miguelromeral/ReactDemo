@@ -36,6 +36,17 @@ const TmdbService = {
     }
   },
 
+  async searchShows(query) {
+    try {
+      const response = await fetch(`${BASE_URL}/search/tv?${LANGUAGE}&query=${query}`, OPTIONS);
+      const data = await response.json();
+      return data.results;
+    } catch (error) {
+      console.error('Error searching tv shows:', error);
+      throw error;
+    }
+  },
+
   
   async movieDetails(id) {
     try {
@@ -43,6 +54,18 @@ const TmdbService = {
       return await response.json();
     } catch (error) {
       console.error('Error searching movie:', error);
+      throw error;
+    }
+  },
+
+
+  
+  async showDetails(id) {
+    try {
+      const response = await fetch(`${BASE_URL}/tv/${id}?${LANGUAGE}`, OPTIONS);
+      return await response.json();
+    } catch (error) {
+      console.error('Error searching show:', error);
       throw error;
     }
   },
