@@ -1,7 +1,8 @@
 import './App.css';
 import PopularMovies from './components/PopularMovies';
+import NavBar from './components/shared/NavBar';
 import SearchMoviesScreen from './components/screens/SearchMoviesScreen';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
 
@@ -9,16 +10,7 @@ function App() {
 
   return (
     <>
-    <nav>
-      <ul>
-        <li>
-          <a href="/">Inicio</a>
-        </li>
-        <li>
-          <a href="/search">Buscar</a>
-        </li>
-      </ul>
-    </nav>
+    <NavBar />
     <div className="App">
       <Router>
           <Routes>

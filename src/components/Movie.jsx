@@ -7,7 +7,6 @@ import { HandThumbUpIcon } from '@heroicons/react/24/outline';
 const Movie = ({movie}) => {
 
   const imgPath =  useMemo(() => TmdbService.getImageFullPath(movie.poster_path), [movie.id]);
-  // console.log(imgPath);
   const bgImage = useMemo(() => TmdbService.getImageFullPath(movie.backdrop_path), [movie.id]);
 
   const scoreClasses = useMemo(() => {
@@ -28,21 +27,22 @@ const Movie = ({movie}) => {
         <img class='object-cover blur-sm group-hover:blur-none transition-all' src={bgImage} />
       </div>
       <div class='z-10'>
-        <img className='h-40 rounded-md shadow-lg' src={imgPath} />
+        <img className='movie-poster' src={imgPath} />
       </div>
       <div className='transition-all col-span-2 z-10 mt-20 group-hover:mt-40'>
         <div class='text-lg mr-5 font-bold text-blue-500'>
           {movie.title}
         </div>
-        <div class='text-xs font-light italic'>
+        <div class='text-xs font-light italic text-custom'>
           {movie.overview}
         </div>
         <div className=' bg-green-100 text-green-900 text-xs font-medium px-2 rounded-full grid grid-cols-2 w-fit relative mt-2'>
           <HandThumbUpIcon className='h-4'/>
           <span>{movie.vote_count}</span>
         </div>
-        <div className={`absolute rounded-full h-8 w-8 top-2 right-2 ${scoreClasses} flex align-items-center justify-center`} title={movie.vote_average}>
-          <span class='mx-2'>
+        <div className={`absolute rounded-full h-8 w-8 top-2 right-2 ${scoreClasses} font-bold
+          flex items-center justify-center`} title={movie.vote_average}>
+          <span>
             {movie.vote_average.toFixed(1)}
           </span>
         </div>

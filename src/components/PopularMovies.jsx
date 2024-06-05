@@ -27,8 +27,8 @@ const PopularMovies = () => {
 
   return (
     <div>
-      <h1>Popular Movies</h1>
-      <div>
+      <div className='container mx-auto'>
+        <h1 className='text-2xl font-bold py-2'>Popular Movies</h1>
         {movies.sort((a,b) => b.popularity - a.popularity).map((movie) => (
           <Movie key={movie.id} movie={movie} />
         ))}
