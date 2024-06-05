@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import TmdbService from '../services/TmdbService';
-import Movie from './Movie';
+import TmdbService from '../../services/TmdbService';
+import Movie from '../Movie';
 
-const PopularMovies = () => {
+const PopularMoviesScreen = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -27,7 +27,7 @@ const PopularMovies = () => {
 
   return (
     <div>
-      <div className='container mx-auto'>
+      <div className='container mx-auto px-2'>
         <h1 className='text-2xl font-bold py-2'>Popular Movies</h1>
         {movies.sort((a,b) => b.popularity - a.popularity).map((movie) => (
           <Movie key={movie.id} movie={movie} />
@@ -37,4 +37,4 @@ const PopularMovies = () => {
   );
 };
 
-export default PopularMovies;
+export default PopularMoviesScreen;

@@ -1,6 +1,7 @@
 // src/services/tmdbService.js
-const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+// const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 const BASE_URL = process.env.REACT_APP_TMDB_API_BASE_URL;
+const LANGUAGE = `language=${process.env.REACT_APP_LANGUAGE}`;
 
 const OPTIONS = {
   method: 'GET',
@@ -9,8 +10,6 @@ const OPTIONS = {
     Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_KEY_READ}`
   }
 };
-
-const LANGUAGE = 'language=es-ES';
 
 const TmdbService = {
 
@@ -33,6 +32,17 @@ const TmdbService = {
       return data.results;
     } catch (error) {
       console.error('Error searching movies:', error);
+      throw error;
+    }
+  },
+
+  
+  async movieDetails(id) {
+    try {
+      const response = await fetch(`${BASE_URL}/movie/${id}?${LANGUAGE}`, OPTIONS);
+      return await response.json();
+    } catch (error) {
+      console.error('Error searching movie:', error);
       throw error;
     }
   },
