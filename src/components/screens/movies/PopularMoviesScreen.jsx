@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import TmdbService from '../../services/TmdbService';
-import MovieCard from '../shared/cards/MovieCard';
+import TmdbService from '../../../services/TmdbService';
+import MovieCard from '../../shared/cards/MovieCard';
 
 const PopularMoviesScreen = () => {
   const [movies, setMovies] = useState([]);

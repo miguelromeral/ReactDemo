@@ -1,13 +1,16 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import TmdbService from '../../services/TmdbService';
-import CustomizeService from '../../services/CustomizeService';
+import TmdbService from '../../../services/TmdbService';
+import CustomizeService from '../../../services/CustomizeService';
 import { useParams } from 'react-router-dom';
 import { BanknotesIcon, TicketIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
+import ShowDetailsScreen from '../shows/ShowDetailsScreen';
+import PeopleList from '../../shared/PeopleList';
 
 const MovieDetailsScreen = () => {
 
   const { id } = useParams();
   const [movie, setMovie] = useState({});
+  const [credits, setCredits] = useState({});
   const [loading, setLoading] = useState(true);
   const bgImage = useMemo(() => TmdbService.getImageFullPath(movie.backdrop_path), [movie.id]);
   const posterImage = useMemo(() => TmdbService.getImageFullPath(movie.poster_path), [movie.id]);
@@ -20,6 +23,7 @@ const MovieDetailsScreen = () => {
         setMovie(data);
         console.log(data);
         document.title = data.title;
+        setCredits(await  TmdbService.getMovieCredits(id));
         setLoading(false);
       } catch (error) {
         console.error('Error fetching popular movies:', error);
@@ -91,6 +95,7 @@ const MovieDetailsScreen = () => {
           {homepageTemplate}
         </div>
       </div>
+      <PeopleList people={credits.cast} />
     </div>
       <div className='flex flex-wrap justify-center align-baseline border-t-slate-800 border-t-2 pt-6'>
         {

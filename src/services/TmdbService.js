@@ -59,6 +59,15 @@ const TmdbService = {
   },
 
 
+  async getMovieCredits(id){
+    try {
+      const response = await fetch(`${BASE_URL}/movie/${id}/credits?${LANGUAGE}`, OPTIONS);
+      return await response.json();
+    } catch (error) {
+      console.error('Error searching show credits:', error);
+      throw error;
+    }
+  },
   
   async showDetails(id) {
     try {
@@ -69,6 +78,49 @@ const TmdbService = {
       throw error;
     }
   },
+
+  async getShowCredits(id){
+    try {
+      const response = await fetch(`${BASE_URL}/tv/${id}/credits?${LANGUAGE}`, OPTIONS);
+      return await response.json();
+    } catch (error) {
+      console.error('Error searching show credits:', error);
+      throw error;
+    }
+  },
+
+  
+  async personDetails(id) {
+    try {
+      const response = await fetch(`${BASE_URL}/person/${id}?${LANGUAGE}`, OPTIONS);
+      return await response.json();
+    } catch (error) {
+      console.error('Error searching person:', error);
+      throw error;
+    }
+  },
+
+  
+  async moviesByPerson(id) {
+    try {
+      const response = await fetch(`${BASE_URL}/person/${id}/movie_credits?${LANGUAGE}`, OPTIONS);
+      return await response.json();
+    } catch (error) {
+      console.error('Error searching person:', error);
+      throw error;
+    }
+  },
+  
+  async showsByPerson(id) {
+    try {
+      const response = await fetch(`${BASE_URL}/person/${id}/tv_credits?${LANGUAGE}`, OPTIONS);
+      return await response.json();
+    } catch (error) {
+      console.error('Error searching person:', error);
+      throw error;
+    }
+  },
+
 
   getImageFullPath(imgPath){
     return `${process.env.REACT_APP_TMDB_BASE_URL_IMAGE}${imgPath}`;

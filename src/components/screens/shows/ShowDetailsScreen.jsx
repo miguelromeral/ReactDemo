@@ -1,14 +1,17 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import TmdbService from '../../services/TmdbService';
-import CustomizeService from '../../services/CustomizeService';
+import TmdbService from '../../../services/TmdbService';
+import CustomizeService from '../../../services/CustomizeService';
 import { useParams } from 'react-router-dom';
 import { BanknotesIcon, TicketIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
+import PeopleCard from '../../shared/cards/PeopleCard';
+import PeopleList from '../../shared/PeopleList';
 
 const ShowDetailsScreen = () => {
 
   const { id } = useParams();
 
   const [show, setShow] = useState({});
+  const [credits, setCredits] = useState({});
   const [loading, setLoading] = useState(true);
 
   const bgImage = useMemo(() => TmdbService.getImageFullPath(show.backdrop_path), [show.id]);
@@ -32,8 +35,11 @@ const ShowDetailsScreen = () => {
       try {
         const data = await TmdbService.showDetails(id);
         setShow(data);
-        console.log(data);
+        // console.log(data);
         document.title = data.name;
+        const credits = await TmdbService.getShowCredits(id);
+        setCredits(credits);
+        console.log(credits.cast[0]);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching details:', error);
@@ -99,6 +105,7 @@ const ShowDetailsScreen = () => {
           {homepageTemplate}
         </div>
       </div>
+      <PeopleList people={credits.cast} />
     </div>
       <div className='flex flex-wrap justify-center align-baseline border-t-slate-800 border-t-2 pt-6'>
         {

@@ -1,13 +1,14 @@
 import './App.css';
-import PopularMovies from './components/screens/PopularMoviesScreen';
+import PopularMovies from './components/screens/movies/PopularMoviesScreen';
 import NavBar from './components/shared/NavBar';
-import SearchMoviesScreen from './components/screens/SearchMoviesScreen';
+import SearchMoviesScreen from './components/screens/movies/SearchMoviesScreen';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import MovieDetailsScreen from './components/screens/MovieDetailsScreen';
+import MovieDetailsScreen from './components/screens/movies/MovieDetailsScreen';
 import Footer from './components/shared/Footer';
-import SearchShowsScreen from './components/screens/SearchShowsScreen';
+import SearchShowsScreen from './components/screens/shows/SearchShowsScreen';
+import ShowDetailsScreen from './components/screens/shows/ShowDetailsScreen';
 import NotFoundScreen from './components/screens/NotFoundScreen';
-import ShowDetailsScreen from './components/screens/ShowDetailsScreen';
+import PeopleDetailsScreen from './components/screens/people/PeopleDetailsScreen';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/show/:id" element={<ShowDetailsScreen />} />
             <Route path="/movies" element={<SearchMoviesScreen />} />
             <Route path="/movie/:id" element={<MovieDetailsScreen />} />
+            <Route path="/people/:id" element={<PeopleDetailsScreen />} />
             <Route path="*" element={<NotFoundScreen />} />
           </Routes>
         </Router>

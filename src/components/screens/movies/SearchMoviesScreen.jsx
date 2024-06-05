@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback  } from 'react';
-import TmdbService from '../../services/TmdbService';
-import MovieCard from '../shared/cards/MovieCard'
-import SearchForm from '../shared/SearchForm';
+import TmdbService from '../../../services/TmdbService';
+import MovieCard from '../../shared/cards/MovieCard'
+import SearchForm from '../../shared/SearchForm';
 
 const SearchMoviesScreen = () => {
 
