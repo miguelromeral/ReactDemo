@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useCallback  } from 'react';
+import React, { useEffect, useState, useCallback, useTransition  } from 'react';
 import TmdbService from '../../../../services/TmdbService';
 import MovieCard from '../../../shared/cards/MovieCard'
 import SearchForm from '../../../shared/forms/SearchForm';
+import { t } from 'i18next';
+import i18n from '../../../../i18n';
 
 const SearchMoviesScreen = () => {
 
@@ -17,7 +19,9 @@ const SearchMoviesScreen = () => {
     <MovieCard key={movie.id} movie={movie} />
   ));
 
-  const notFound = <div className='flex flex-col items-center'>Nada por aquí 😓</div>
+  const notFound = <div className='flex flex-col items-center'>
+    {t('screens.movies.search.not_found')}
+  </div>
 
   return (
     <div class='grid gap-6 mb-6 gird-cols-1 mx-2'>

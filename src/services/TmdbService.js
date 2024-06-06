@@ -21,7 +21,6 @@ const TmdbService = {
   async getPopularMovies() {
     try {
       const url = `${BASE_URL}/movie/popular?${this.getSuffixLanguage()}`;
-      console.log(url);
       const response = await fetch(url, OPTIONS);
       const data = await response.json();
       return data.results;

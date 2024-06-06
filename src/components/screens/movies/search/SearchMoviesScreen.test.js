@@ -3,6 +3,8 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import SearchMoviesScreen from './SearchMoviesScreen';
 import TmdbService from '../../../../services/TmdbService';
+import { t } from 'i18next';
+import i18n from '../../../../i18n';
 
 // Mockea el servicio
 jest.mock('../../../../services/TmdbService');
@@ -13,7 +15,7 @@ describe('SearchMoviesScreen', () => {
 
     expect(screen.getByLabelText('Buscar Películas')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Título de la Película')).toBeInTheDocument();
-    expect(screen.getByText('Nada por aquí 😓')).toBeInTheDocument();
+    expect(screen.getByText(t('screens.movies.search.not_found'))).toBeInTheDocument();
   });
 
   test('renders movie list when search returns results', async () => {
