@@ -3,7 +3,7 @@ import TmdbService from '../../../services/TmdbService';
 import CustomizeService from '../../../services/CustomizeService';
 import { useParams } from 'react-router-dom';
 import { BanknotesIcon, TicketIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
-import PeopleCard from '../../shared/cards/PeopleCard';
+import MiniPeopleCard from '../../shared/cards/MiniPeopleCard';
 import PeopleList from '../../shared/lists/PeopleList';
 import i18n from '../../../i18n';
 

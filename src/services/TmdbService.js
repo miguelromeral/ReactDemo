@@ -22,7 +22,6 @@ const TmdbService = {
     try {
       const url = `${BASE_URL}/movie/popular?${this.getSuffixLanguage()}`;
       const response = await fetch(url, OPTIONS);
-      console.log(url);
       const data = await response.json();
       return data.results;
     } catch (error) {
@@ -52,6 +51,19 @@ const TmdbService = {
       throw error;
     }
   },
+
+  
+  async searchPeople(query) {
+    try {
+      const response = await fetch(`${BASE_URL}/search/person?${this.getSuffixLanguage()}&query=${query}`, OPTIONS);
+      const data = await response.json();
+      return data.results;
+    } catch (error) {
+      console.error('Error searching movies:', error);
+      throw error;
+    }
+  },
+
 
   
   async movieDetails(id) {

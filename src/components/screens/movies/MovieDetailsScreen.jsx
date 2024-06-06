@@ -22,7 +22,6 @@ const MovieDetailsScreen = () => {
       try {
         const data = await TmdbService.movieDetails(id);
         setMovie(data);
-        console.log(data);
         document.title = data.title;
         setCredits(await  TmdbService.getMovieCredits(id));
         setLoading(false);

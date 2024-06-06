@@ -9,11 +9,14 @@ import PopularMovies from '../components/screens/movies/PopularMoviesScreen';
 import SearchMoviesScreen from '../components/screens/movies/search/SearchMoviesScreen';
 import PeopleDetailsScreen from "../components/screens/people/PeopleDetailsScreen";
 import LoginScreen from "../components/screens/account/LoginScreen";
+import SearchPeopleScreen from "../components/screens/people/SearchPeopleScreen";
 
 const UnAuthRoutes = [
   <Route key="ScreenPopularMovies" path="/" element={<UnAuthGuard component={<PopularMovies />} />} />,
   
-  <Route key="ScreenPeopleDetails" path="/login" element={<UnAuthGuard component={<LoginScreen />} />} />,
+  <Route key="LoginScreen" path="/login" element={<UnAuthGuard component={<LoginScreen />} />} />,
+
+  <Route key="ScreenSearchPeople" path="/people" element={<UnAuthGuard component={<SearchPeopleScreen />} />} />,
 
   <Route key="ScreenPeopleDetails" path="/people/:id" element={<UnAuthGuard component={<PeopleDetailsScreen />} />} />,
 

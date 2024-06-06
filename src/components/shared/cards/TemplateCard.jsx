@@ -4,7 +4,7 @@ import { HandThumbUpIcon } from '@heroicons/react/24/outline';
 import CustomizeService from '../../../services/CustomizeService';
 import { useTranslation } from 'react-i18next';
 
-function TemplateCard({ id, urlSuffix, title, overview, poster, vote_average }) {
+function TemplateCard({ id, urlSuffix, title, overview, poster, vote_average, children }) {
 
   const { t, i18n } = useTranslation();
 
@@ -27,7 +27,8 @@ function TemplateCard({ id, urlSuffix, title, overview, poster, vote_average }) 
             {title}
           </a>
         </div>
-        <div className='h-16 overflow-hidden text-xs text-slate-400 group-hover:text-slate-900'>
+        <div className='flex-1'>
+        <div className='max-h-16 overflow-hidden text-xs text-slate-400 group-hover:text-slate-900'>
           <span className='text-ellipsis'>
             {overview}
           </span>
@@ -41,6 +42,10 @@ function TemplateCard({ id, urlSuffix, title, overview, poster, vote_average }) 
           <span>
             {(vote_average ?? 0).toFixed(1)}
           </span>
+        </div>
+        <div>
+          {children}
+        </div>
         </div>
       </div>
     </div>

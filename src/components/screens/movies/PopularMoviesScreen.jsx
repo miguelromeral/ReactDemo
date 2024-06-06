@@ -24,7 +24,6 @@ const PopularMoviesScreen = () => {
     fetchPopularMovies();
   }, [i18n.language]);
 
-  console.log("18n: "+i18n.language);
 
   if (loading) {
     return <div>Loading...</div>;
