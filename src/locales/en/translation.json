@@ -1,0 +1,13 @@
+{
+  "welcome": "Welcome to our application",
+  "search_placeholder": "Search for a movie",
+  "not_found": "Nothing here 😓",
+  "screens": {
+    "popular": {
+      "title": "Popular Movies"
+    }
+  },
+  "tmdb": {
+    "language": "en-US"
+  }
+}

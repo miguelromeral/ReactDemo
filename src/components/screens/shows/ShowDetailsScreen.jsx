@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { BanknotesIcon, TicketIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 import PeopleCard from '../../shared/cards/PeopleCard';
 import PeopleList from '../../shared/lists/PeopleList';
+import i18n from '../../../i18n';
 
 const ShowDetailsScreen = () => {
 
@@ -47,7 +48,7 @@ const ShowDetailsScreen = () => {
     };
 
     fetchDetails();
-  }, []);
+  }, [i18n.language]);
 
   if (loading) {
     return <div>Loading...</div>;

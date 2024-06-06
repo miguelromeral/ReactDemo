@@ -1,0 +1,13 @@
+{
+  "welcome": "Bienvenido a nuestra aplicación",
+  "search_placeholder": "Busca una película",
+  "not_found": "Nada por aquí 😓",
+  "screens": {
+    "popular": {
+      "title": "Películas Populares"
+    }
+  },
+  "tmdb": {
+    "language": "es-ES"
+  }
+}

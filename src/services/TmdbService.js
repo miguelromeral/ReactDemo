@@ -1,7 +1,8 @@
-// src/services/tmdbService.js
+import i18n from '../i18n';
+
 // const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+
 const BASE_URL = process.env.REACT_APP_TMDB_API_BASE_URL;
-const LANGUAGE = `language=${process.env.REACT_APP_LANGUAGE}`;
 
 const OPTIONS = {
   method: 'GET',
@@ -13,9 +14,14 @@ const OPTIONS = {
 
 const TmdbService = {
 
+  getSuffixLanguage() {
+    return 'language='+i18n.t("tmdb.language");
+  },
+
   async getPopularMovies() {
     try {
-      const url = `${BASE_URL}/movie/popular?${LANGUAGE}`;
+      const url = `${BASE_URL}/movie/popular?${this.getSuffixLanguage()}`;
+      console.log(url);
       const response = await fetch(url, OPTIONS);
       const data = await response.json();
       return data.results;
@@ -27,7 +33,7 @@ const TmdbService = {
 
   async searchMovies(query) {
     try {
-      const response = await fetch(`${BASE_URL}/search/movie?${LANGUAGE}&query=${query}`, OPTIONS);
+      const response = await fetch(`${BASE_URL}/search/movie?${this.getSuffixLanguage()}&query=${query}`, OPTIONS);
       const data = await response.json();
       return data.results;
     } catch (error) {
@@ -38,7 +44,7 @@ const TmdbService = {
 
   async searchShows(query) {
     try {
-      const response = await fetch(`${BASE_URL}/search/tv?${LANGUAGE}&query=${query}`, OPTIONS);
+      const response = await fetch(`${BASE_URL}/search/tv?${this.getSuffixLanguage()}&query=${query}`, OPTIONS);
       const data = await response.json();
       return data.results;
     } catch (error) {
@@ -50,7 +56,7 @@ const TmdbService = {
   
   async movieDetails(id) {
     try {
-      const response = await fetch(`${BASE_URL}/movie/${id}?${LANGUAGE}`, OPTIONS);
+      const response = await fetch(`${BASE_URL}/movie/${id}?${this.getSuffixLanguage()}`, OPTIONS);
       return await response.json();
     } catch (error) {
       console.error('Error searching movie:', error);
@@ -61,7 +67,7 @@ const TmdbService = {
 
   async getMovieCredits(id){
     try {
-      const response = await fetch(`${BASE_URL}/movie/${id}/credits?${LANGUAGE}`, OPTIONS);
+      const response = await fetch(`${BASE_URL}/movie/${id}/credits?${this.getSuffixLanguage()}`, OPTIONS);
       return await response.json();
     } catch (error) {
       console.error('Error searching show credits:', error);
@@ -71,7 +77,7 @@ const TmdbService = {
   
   async showDetails(id) {
     try {
-      const response = await fetch(`${BASE_URL}/tv/${id}?${LANGUAGE}`, OPTIONS);
+      const response = await fetch(`${BASE_URL}/tv/${id}?${this.getSuffixLanguage()}`, OPTIONS);
       return await response.json();
     } catch (error) {
       console.error('Error searching show:', error);
@@ -81,7 +87,7 @@ const TmdbService = {
 
   async getShowCredits(id){
     try {
-      const response = await fetch(`${BASE_URL}/tv/${id}/credits?${LANGUAGE}`, OPTIONS);
+      const response = await fetch(`${BASE_URL}/tv/${id}/credits?${this.getSuffixLanguage()}`, OPTIONS);
       return await response.json();
     } catch (error) {
       console.error('Error searching show credits:', error);
@@ -92,7 +98,7 @@ const TmdbService = {
   
   async personDetails(id) {
     try {
-      const response = await fetch(`${BASE_URL}/person/${id}?${LANGUAGE}`, OPTIONS);
+      const response = await fetch(`${BASE_URL}/person/${id}?${this.getSuffixLanguage()}`, OPTIONS);
       return await response.json();
     } catch (error) {
       console.error('Error searching person:', error);
@@ -103,7 +109,7 @@ const TmdbService = {
   
   async moviesByPerson(id) {
     try {
-      const response = await fetch(`${BASE_URL}/person/${id}/movie_credits?${LANGUAGE}`, OPTIONS);
+      const response = await fetch(`${BASE_URL}/person/${id}/movie_credits?${this.getSuffixLanguage()}`, OPTIONS);
       return await response.json();
     } catch (error) {
       console.error('Error searching person:', error);
@@ -113,7 +119,7 @@ const TmdbService = {
   
   async showsByPerson(id) {
     try {
-      const response = await fetch(`${BASE_URL}/person/${id}/tv_credits?${LANGUAGE}`, OPTIONS);
+      const response = await fetch(`${BASE_URL}/person/${id}/tv_credits?${this.getSuffixLanguage()}`, OPTIONS);
       return await response.json();
     } catch (error) {
       console.error('Error searching person:', error);

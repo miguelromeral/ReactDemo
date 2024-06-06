@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { BanknotesIcon, TicketIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 import ShowDetailsScreen from '../shows/ShowDetailsScreen';
 import PeopleList from '../../shared/lists/PeopleList';
+import i18n from '../../../i18n';
 
 const MovieDetailsScreen = () => {
 
@@ -31,7 +32,7 @@ const MovieDetailsScreen = () => {
     };
 
     fetchPopularMovies();
-  }, []);
+  }, [i18n.language]);
 
   if (loading) {
     return <div>Loading...</div>;
