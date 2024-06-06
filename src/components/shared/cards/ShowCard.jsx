@@ -13,8 +13,8 @@ const ShowCard = ({show}) => {
   const scoreClasses = useMemo(() => CustomizeService.getClassScore(show.vote_average), [show.id]);
 
   return (
-    <div class='border transition-all border-blue-500 hover:bg-blue-100 my-2 rounded-md p-3 relative flex flex-wrap overflow-hidden group' key={show.id}>
-      <div class=''>
+    <div className='border transition-all bg-white hover:bg-blue-100 my-2 rounded-md relative flex flex-wrap overflow-hidden group shadow-lg' key={show.id}>
+      <div className='w-24'>
         {!imgLoaded && (
           <div className="movie-poster bg-gray-300 animate-pulse"></div>
         )}
@@ -23,12 +23,12 @@ const ShowCard = ({show}) => {
           />
       </div>
       <div className='transition-all flex-1 mx-2'>
-        <div class='text-lg mr-5 font-bold text-blue-700 group-hover:text-blue-900'>
+        <div className='text-lg mr-5 font-bold text-blue-700 group-hover:text-blue-900 my-2'>
           <a href={`/show/${show.id}`}>
             {show.name}
           </a>
         </div>
-        <div class='text-xs text-slate-400 group-hover:text-slate-900'>
+        <div className='h-16 overflow-hidden text-ellipsis text-xs text-slate-400 group-hover:text-slate-900'>
           {show.overview}
         </div>
         <div className={`absolute rounded-full h-8 w-8 top-2 right-2 ${scoreClasses} font-bold

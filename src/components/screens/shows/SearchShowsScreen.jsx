@@ -2,19 +2,23 @@ import React, { useEffect, useState, useCallback  } from 'react';
 import TmdbService from '../../../services/TmdbService';
 import ShowCard from '../../shared/cards/ShowCard'
 import SearchForm from '../../shared/forms/SearchForm';
+import i18n from '../../../i18n';
 
 const SearchShowsScreen = () => {
 
-  const [shows, setMovies] = useState([]);
-  // const [query, setQuery] = useState(initialQuery);
+  const [query, setQuery] = useState('');
+  const [shows, setShows] = useState([]);
 
   const search = async (query) => {
-    const tmp = await TmdbService.searchShows(query);
-    console.log(tmp[0]);
-    setMovies(query.length > 0 ?
-      tmp :
+    setQuery(query);
+    setShows(query.length > 0 ?
+      await TmdbService.searchShows(query) :
       []);
   };
+  
+  useEffect(() => {
+    search(query);
+  }, [i18n.language]);
 
   const listaShows = shows.sort((a,b) => b.popularity - a.popularity).map((show) => (
     <ShowCard key={show.id} show={show} />

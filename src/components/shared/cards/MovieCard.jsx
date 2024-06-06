@@ -13,23 +13,25 @@ const MovieCard = ({movie}) => {
   const scoreClasses = useMemo(() => CustomizeService.getClassScore(movie.vote_average), [movie.id]);
 
   return (
-    <div class='border transition-all border-blue-500 hover:bg-blue-100 my-2 rounded-md p-3 relative flex flex-wrap overflow-hidden group' key={movie.id}>
-      <div class=''>
+    <div className='border transition-all bg-white hover:bg-blue-100 my-2 rounded-md relative flex flex-wrap overflow-hidden group shadow-lg' key={movie.id}>
+      <div className='w-24'>
         {!imgLoaded && (
-          <div className="movie-poster bg-gray-300 animate-pulse"></div>
+          <div className="bg-gray-300 animate-pulse"></div>
         )}
-        <img className='movie-poster' src={imgPath} 
+        <img className='' src={imgPath} 
           onLoad={() => setImgLoaded(true)} 
           />
       </div>
       <div className='transition-all flex-1 mx-2'>
-        <div class='text-lg mr-5 font-bold text-blue-700 group-hover:text-blue-900'>
+        <div className='text-lg mr-5 font-bold text-blue-700 group-hover:text-blue-900 my-2'>
           <a href={`/movie/${movie.id}`}>
             {movie.title}
           </a>
         </div>
-        <div class='text-xs text-slate-400 group-hover:text-slate-900'>
-          {movie.overview}
+        <div className='h-16 overflow-hidden text-xs text-slate-400 group-hover:text-slate-900'>
+          <span className='text-ellipsis'>
+            {movie.overview}
+          </span>
         </div>
         <div className=' bg-green-100 text-green-900 text-xs font-medium px-2 rounded-full grid grid-cols-2 w-fit relative mt-2'>
           <HandThumbUpIcon className='h-4'/>

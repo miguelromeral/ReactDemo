@@ -7,13 +7,20 @@ import i18n from '../../../../i18n';
 
 const SearchMoviesScreen = () => {
 
+  const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
 
+
   const search = async (query) => {
+    setQuery(query);
     setMovies(query.length > 0 ?
       await TmdbService.searchMovies(query) :
       []);
   };
+  
+  useEffect(() => {
+    search(query);
+  }, [i18n.language]);
 
   const listaMovies = movies.sort((a,b) => b.popularity - a.popularity).map((movie) => (
     <MovieCard key={movie.id} movie={movie} />
