@@ -1,6 +1,6 @@
 function Footer() {
 
-  const isProd = process.env.REACT_APP_ENVIRONMENT === '';
+  const isProd = process.env.REACT_APP_ENVIRONMENT === 'Production';
   const classFooterEnv = isProd ? 
   'bg-slate-800 text-slate-400' 
   :

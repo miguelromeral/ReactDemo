@@ -4,7 +4,7 @@ import CustomizeService from '../../../services/CustomizeService';
 import { useParams } from 'react-router-dom';
 import { BanknotesIcon, TicketIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 import PeopleCard from '../../shared/cards/PeopleCard';
-import PeopleList from '../../shared/PeopleList';
+import PeopleList from '../../shared/lists/PeopleList';
 
 const ShowDetailsScreen = () => {
 

@@ -1,4 +1,4 @@
-import PeopleCard from "./cards/PeopleCard";
+import PeopleCard from "../cards/PeopleCard";
 
 function PeopleList({ people }) {
   return (

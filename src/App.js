@@ -1,10 +1,10 @@
 import './App.css';
 import PopularMovies from './components/screens/movies/PopularMoviesScreen';
-import NavBar from './components/shared/NavBar';
-import SearchMoviesScreen from './components/screens/movies/SearchMoviesScreen';
+import NavBar from './components/shared/page/NavBar';
+import SearchMoviesScreen from './components/screens/movies/search/SearchMoviesScreen';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MovieDetailsScreen from './components/screens/movies/MovieDetailsScreen';
-import Footer from './components/shared/Footer';
+import Footer from './components/shared/page/Footer';
 import SearchShowsScreen from './components/screens/shows/SearchShowsScreen';
 import ShowDetailsScreen from './components/screens/shows/ShowDetailsScreen';
 import NotFoundScreen from './components/screens/NotFoundScreen';

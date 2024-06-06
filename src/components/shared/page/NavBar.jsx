@@ -3,7 +3,7 @@ import {
   HomeIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/16/solid";
-import logo from "../../assets/images/logo512.png";
+import logo from "../../../assets/images/logo512.png";
 
 function NavBar() {
   return (

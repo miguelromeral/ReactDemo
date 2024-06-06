@@ -5,7 +5,7 @@
   "dependencies": {
     "@heroicons/react": "^2.1.3",
     "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/react": "^15.0.6",
     "@testing-library/user-event": "^13.5.0",
     "dotenv": "^16.4.5",
     "react": "^18.3.1",
@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && copy .\\src\\web.config .\\build\\web.config",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
