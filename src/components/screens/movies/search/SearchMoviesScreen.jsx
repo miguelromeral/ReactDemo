@@ -4,8 +4,10 @@ import MovieCard from '../../../shared/cards/MovieCard'
 import SearchForm from '../../../shared/forms/SearchForm';
 import { t } from 'i18next';
 import i18n from '../../../../i18n';
+import { useTranslation } from 'react-i18next';
 
 const SearchMoviesScreen = () => {
+  const { t, i18n } = useTranslation();
 
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);

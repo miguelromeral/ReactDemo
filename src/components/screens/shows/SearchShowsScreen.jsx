@@ -2,9 +2,10 @@ import React, { useEffect, useState, useCallback  } from 'react';
 import TmdbService from '../../../services/TmdbService';
 import ShowCard from '../../shared/cards/ShowCard'
 import SearchForm from '../../shared/forms/SearchForm';
-import i18n from '../../../i18n';
+import { useTranslation } from 'react-i18next';
 
 const SearchShowsScreen = () => {
+  const { t, i18n } = useTranslation();
 
   const [query, setQuery] = useState('');
   const [shows, setShows] = useState([]);

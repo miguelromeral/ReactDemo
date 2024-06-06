@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import TmdbService from '../../../services/TmdbService';
 import MovieCard from '../../shared/cards/MovieCard';
-import { t } from 'i18next';
-import i18n from '../../../i18n';
+import { useTranslation } from 'react-i18next';
 
 const PopularMoviesScreen = () => {
+  const { t, i18n } = useTranslation();
+
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPopularMovies = async () => {
       try {
+        console.log("Searching por Popular Movies");
         const popularMovies = await TmdbService.getPopularMovies();
         setMovies(popularMovies);
         setLoading(false);
-        // console.log(popularMovies[0]);
       } catch (error) {
         console.error('Error fetching popular movies:', error);
       }
@@ -22,6 +23,8 @@ const PopularMoviesScreen = () => {
 
     fetchPopularMovies();
   }, [i18n.language]);
+
+  console.log("18n: "+i18n.language);
 
   if (loading) {
     return <div>Loading...</div>;

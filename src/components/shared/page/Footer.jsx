@@ -31,7 +31,7 @@ function Footer({onLanguageChange}) {
         <div className='flex flex-wrap'>
           {
             languages.map((lang) => 
-              <div onClick={() => onLanguageChange(lang.lang)}
+              <div key={lang.lang} onClick={() => onLanguageChange(lang.lang)}
                 className={`h-3 w-4 mx-1 rounded-md ${i18n.language == lang.lang ? 'opacity-50' : ''}`}>
                 <img className='h-full w-full cursor-pointer' src={lang.flag} />
               </div>

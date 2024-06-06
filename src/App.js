@@ -13,6 +13,7 @@ function App() {
 
   const handleLanguageChange = (lang) => {
     i18n.changeLanguage(lang);
+    console.log("Idioma cambiado a..."+lang);
   };
 
   useCallback(() => {

@@ -13,8 +13,7 @@ const resources = {
   }
 };
 
-const defaultLanguage = 
-  (process.env.REACT_APP_I18N_DEFAULT_LANGUAGE ?? 'es').toString();
+const defaultLanguage = (process.env.REACT_APP_I18N_DEFAULT_LANGUAGE ?? 'es').toString();
 
 i18n
   .use(initReactI18next)
