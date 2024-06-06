@@ -17,6 +17,7 @@ function App() {
   return (
     <div className='font-poppins'>
     <NavBar />
+    <h1>My React App</h1>
     <div className="App bottom-2">
       <Router>
           <Routes>
