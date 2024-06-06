@@ -10,6 +10,7 @@ import i18n from '../../../i18n';
 const PeopleDetailsScreen = () => {
 
   const { id } = useParams();
+  console.log("Person: "+id);
   const [person, setPerson] = useState({});
   const [movies, setMovies] = useState({});
   const [shows, setShows] = useState({});
