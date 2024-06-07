@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthService from '../../../services/AuthService';
 
-const LoginScreen = () => {
+const LoggedScreen = () => {
 
   const [name, setName] = useState("");
   const [processing, setProcessing] = useState(false);
@@ -50,4 +50,4 @@ const LoginScreen = () => {
     </div>)
 }
 
-export default LoginScreen;
+export default LoggedScreen;
