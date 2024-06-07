@@ -21,10 +21,9 @@ function App() {
   }, []);
 
   return (
-    <>
-      <div className='font-poppins'>
+    <div className='bg-white dark:bg-slate-900 font-poppins min-h-screen'>
       <NavBar />
-      <div className="App bottom-2">
+      <div className="App bottom-2 pb-5">
         <Router>
             <Routes>
               {AuthRoutes}
@@ -33,8 +32,7 @@ function App() {
           </Router>
       </div>
       <Footer onLanguageChange={handleLanguageChange}/>
-      </div>
-    </>
+    </div>
   );
 }
 

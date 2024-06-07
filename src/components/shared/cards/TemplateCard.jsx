@@ -12,23 +12,26 @@ function TemplateCard({ id, urlSuffix, title, overview, poster, vote_average, ch
   const scoreClasses = useMemo(() => CustomizeService.getClassScore(vote_average), [id]);
 
   return <>
-    <div className='border transition-all bg-white hover:bg-blue-100 my-2 rounded-md relative flex flex-wrap overflow-hidden group shadow-lg' key={id}>
+    <div className='transition-all bg-white dark:bg-slate-800 hover:bg-blue-100  my-2 rounded-md relative flex flex-wrap overflow-hidden group shadow-lg' key={id}>
       <div className='w-24'>
         {!imgLoaded && (
-          <div className="bg-gray-300 animate-pulse"></div>
+          <div className="bg-gray-300 dark:bg-slate-700 animate-pulse"></div>
         )}
         <img className='' src={TmdbService.getImageFullPath(poster)} 
           onLoad={() => setImgLoaded(true)} 
           />
       </div>
       <div className='transition-all flex-1 mx-2'>
-        <div className='text-lg mr-5 font-bold text-blue-700 group-hover:text-blue-900 my-2'>
+        <div className='text-lg mr-5 font-bold text-blue-700 dark:text-white
+         group-hover:text-blue-900 group-hover:dark:text-white my-2'>
           <a href={`/${urlSuffix}/${id}`}>
             {title}
           </a>
         </div>
         <div className='flex-1'>
-        <div className='max-h-16 overflow-hidden text-xs text-slate-400 group-hover:text-slate-900'>
+        <div className='max-h-16 overflow-hidden text-xs
+         text-slate-400 dark:text-gray-400
+          group-hover:text-slate-900 group-hover:dark:text-gray-300'>
           <span className='text-ellipsis'>
             {overview}
           </span>

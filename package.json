@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && copy .\\src\\web.config .\\build\\web.config",
+    "build": "react-scripts build --configuration=prod && copy .\\src\\web.config .\\build\\web.config",
     "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "e2e": "cypress open"

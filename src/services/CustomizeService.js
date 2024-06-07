@@ -30,11 +30,11 @@ const CustomizeService = {
 
   getClassScore(vote_average){
     if(vote_average > 7){
-      return 'bg-green-300';
+      return 'bg-green-300 dark:border-green-300 dark:border dark:bg-slate-800 dark:text-green-300';
     }else if(vote_average > 5){
-      return 'bg-yellow-300';
+      return 'bg-yellow-300 dark:border-yellow-300 dark:border dark:bg-slate-800 dark:text-yellow-300';
     }else if(vote_average > 0){
-      return 'bg-red-300 text-white';
+      return 'bg-red-300 text-white dark:border-red-300 dark:border dark:bg-slate-800 dark:text-red-300';
     }else{
       return 'hidden';
     }

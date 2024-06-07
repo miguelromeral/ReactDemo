@@ -30,14 +30,14 @@ const PopularMoviesScreen = () => {
   }
 
   return (
-    <div>
+    <>
       <div className='container mx-auto px-2'>
-        <h1 className='text-2xl font-bold py-2'>{t("screens.popular.title")}</h1>
+        <h1 className='text-2xl font-bold dark:text-white py-2'>{t("screens.popular.title")}</h1>
         {movies.sort((a,b) => b.popularity - a.popularity).map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,8 +1,11 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../../../providers/ThemeProvider';
+import { MoonIcon, SunIcon } from '@heroicons/react/16/solid';
 
 function Footer({onLanguageChange}) {
 
+  const { theme, toggleTheme } = useTheme();
   const { t, i18n } = useTranslation();
 
   const languages = useMemo(() => [
@@ -24,11 +27,9 @@ function Footer({onLanguageChange}) {
     ;
 
   return (
-    <footer className={`fixed bottom-0 w-full text-xs ${classFooterEnv} flex flex-row justify-between px-2`}>
+    <footer className={`fixed h-4 bottom-0 w-full text-xs ${classFooterEnv} flex flex-row justify-between px-2`}>
       <span>MiguelRomeral</span>
-      
-      <div className='flex flex-wrap items-center'>
-        <div className='flex flex-wrap'>
+        <div className='flex flex-wrap items-center'>
           {
             languages.map((lang) => 
               <div key={lang.lang} onClick={() => onLanguageChange(lang.lang)}
@@ -36,6 +37,18 @@ function Footer({onLanguageChange}) {
                 <img className='h-full w-full cursor-pointer' src={lang.flag} />
               </div>
             )
+          }
+        </div>
+        
+      <div className='flex flex-wrap items-center ml-2'>
+        <div className='cursor-pointer' onClick={toggleTheme}>
+          {
+            theme === 'dark' &&
+            <SunIcon className='h-4 w-4'/>
+          }
+          {
+            theme === 'light' &&
+            <MoonIcon className='h-4 w-4'/>
           }
         </div>
         <span className='ml-2'>
