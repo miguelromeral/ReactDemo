@@ -36,7 +36,7 @@ const CustomizeService = {
     }else if(vote_average > 0){
       return 'bg-red-300 text-white dark:border-red-300 dark:border dark:bg-slate-800 dark:text-red-300';
     }else{
-      return 'hidden';
+      return '';
     }
   },
 

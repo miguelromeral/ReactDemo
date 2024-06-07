@@ -3,6 +3,7 @@ import TmdbService from '../../../services/TmdbService';
 import { HandThumbUpIcon } from '@heroicons/react/24/outline';
 import CustomizeService from '../../../services/CustomizeService';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 function TemplateCard({ id, urlSuffix, title, overview, poster, vote_average, children }) {
 
@@ -17,9 +18,12 @@ function TemplateCard({ id, urlSuffix, title, overview, poster, vote_average, ch
         {!imgLoaded && (
           <div className="bg-gray-300 dark:bg-slate-700 animate-pulse"></div>
         )}
-        <img className='' src={TmdbService.getImageFullPath(poster)} 
-          onLoad={() => setImgLoaded(true)} 
-          />
+        
+        <Link to={`/${urlSuffix}/${id}`}>
+          <img className='' src={TmdbService.getImageFullPath(poster)} 
+            onLoad={() => setImgLoaded(true)} 
+            />
+        </Link>
       </div>
       <div className='transition-all flex-1 mx-2'>
         <div className='text-lg mr-5 font-bold text-blue-700 dark:text-white
@@ -42,7 +46,7 @@ function TemplateCard({ id, urlSuffix, title, overview, poster, vote_average, ch
         </div> */}
         <div className={`absolute rounded-full h-8 w-8 top-2 right-2 ${scoreClasses} font-bold
           flex items-center justify-center`} title={vote_average}>
-          <span>
+          <span className={vote_average > 0 ? '' : 'hidden'}>
             {(vote_average ?? 0).toFixed(1)}
           </span>
         </div>
