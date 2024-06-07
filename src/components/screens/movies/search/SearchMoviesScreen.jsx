@@ -33,7 +33,7 @@ const SearchMoviesScreen = () => {
   </div>
 
   return (
-    <div class='grid gap-6 mb-6 gird-cols-1 mx-2'>
+    <div className='grid gap-6 mb-6 gird-cols-1 mx-2'>
     <SearchForm 
       label='Buscar Películas'
       placeholder='Título de la Película'
