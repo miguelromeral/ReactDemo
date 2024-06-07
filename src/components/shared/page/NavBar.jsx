@@ -7,7 +7,7 @@ import logo from "../../../assets/images/logo512.png";
 
 function NavBar() {
   return (
-    <nav className="bg-blue-700 text-white flex justify-between">
+    <nav className="fixed top-0 w-full z-10 min-h-10 bg-slate-700 text-white flex justify-between">
       <div className="flex flex-row justify-between w-full">
         <ul>
           <li className="px-2 py-2 transition ease-in-out  hover:bg-blue-200 hover:text-blue-900">
@@ -74,7 +74,7 @@ function NavBar() {
           </ul>
         </div>
       </div>
-      <div className="px-2 py-2 block sm:hidden transition ease-in-out bg-blue-700 hover:bg-blue-200 text-white hover:text-blue-900">
+      <div className="px-2 py-2 block sm:hidden transition ease-in-out hover:bg-blue-200 text-white hover:text-blue-900">
         <Bars3Icon
           className="h-6 cursor-pointer"
           onClick={() => {

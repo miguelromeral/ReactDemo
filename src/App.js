@@ -21,9 +21,12 @@ function App() {
   }, []);
 
   return (
-    <div className='bg-white dark:bg-slate-900 font-poppins min-h-screen'>
+    <div className='
+      bg-white dark:bg-slate-900 
+      text-black dark:text-slate-50
+      font-poppins min-h-screen'>
       <NavBar />
-      <div className="App bottom-2 pb-5">
+      <div className="App bottom-2 pb-5 pt-10">
         <Router>
             <Routes>
               {AuthRoutes}

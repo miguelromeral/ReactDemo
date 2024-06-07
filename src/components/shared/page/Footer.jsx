@@ -51,7 +51,7 @@ function Footer({onLanguageChange}) {
             <MoonIcon className='h-4 w-4'/>
           }
         </div>
-        <span className='ml-2'>
+        <span className='ml-2 select-none'>
           {process.env.REACT_APP_VERSION}
         </span>
       </div>
